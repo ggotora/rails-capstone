@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'registrations/new'
+  get 'registrations/create'
   root 'home#index'
   get 'sign_up', to: 'registrations#new'
   post 'sign_up', to: 'registratons#create'
