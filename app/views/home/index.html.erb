@@ -1,0 +1,63 @@
+<div class="row">
+  <div class="col-md-2">
+    <% if Current.user %>
+  <div>Welcome <%= Current.user.full_name %></div>
+  <div><%= button_to "Logout", logout_path, method: :delete,  class: 'btn btn-info' %></div>
+  
+<% end %>
+    <% if @user %>
+  <%=  "Logged in as #{Current.user.username}" %>
+  <div class="card mb-3" style="max-width: 540px;">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <% if @user.image.attached?  %>
+        <%= image_tag Current.user.image, style: "width: 100%; display: block" %>
+        <% end %>
+
+        
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title"><%= Current.user.full_name %></h5>
+          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+          <p class="card-text"><small class="text-muted"><%= "Created at #{@user.created_at}" %></small></p>
+        </div>
+      </div>
+    </div>
+    <ul>
+      <li><%= link_to "Edit", edit_user_path(Current.user) %></li>
+      <li><%= link_to "Destroy", user_path(Current.user),
+                      method: :delete,
+                      data: { confirm: "Are you sure?" } %></li>
+    </ul>
+  </div>
+
+  <% else %>
+    <div>Welcome Guest</div>
+  <% end %>
+
+  </div>
+  <div class="col-md-7 bg-dark">
+    <div class="card text-center">
+      <div class="card-header">
+        <ul class="nav nav-tabs card-header-tabs">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="true" href="#">Active</a>
+            <%= link_to 'Tweets', class: 'nav-link active' %>
+          </li>
+          <li class="nav-item">
+            <%= link_to 'Photos', class: 'nav-link' %>
+          </li>
+        </ul>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">Special title treatment</h5>
+        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <p>fourth</p>
+  </div>
+</div>
