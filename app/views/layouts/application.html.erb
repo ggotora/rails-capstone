@@ -10,13 +10,13 @@
   </head>
 
   <body>
-    <% if flash[:notice] or flash[:alert]%>
+    <% if flash[:notice]%>
     <div class="alert alert-success" role="alert">
       <%= flash[:notice] %>
     </div>
-    <div class="alert alert-danger" role="alert">
+    <!-- <div class="alert alert-danger" role="alert">
       <%= flash[:alert] %> 
-    </div>
+    </div> -->
     <% end %>
     <div class="container">
       <%= yield %>

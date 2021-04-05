@@ -1,6 +1,11 @@
 <div class="row">
   <div class="col-md-2">
     <% if @user %>
+  <div>Welcome <%= @user.full_name %></div>
+  <div><%= button_to "Logout", logout_path, method: :delete,  class: 'btn btn-info' %></div>
+  
+<% end %>
+    <% if @user %>
   <%=  "Logged in as #{@user.username}" %>
   <div class="card mb-3" style="max-width: 540px;">
     <div class="row g-0">
@@ -38,7 +43,7 @@
         <ul class="nav nav-tabs card-header-tabs">
           <li class="nav-item">
             <a class="nav-link active" aria-current="true" href="#">Active</a>
-            <%= link_to 'Tweets', class: 'nav-link active' aria-current: 'true' %>
+            <%= link_to 'Tweets', class: 'nav-link active' %>
           </li>
           <li class="nav-item">
             <%= link_to 'Photos', class: 'nav-link' %>
